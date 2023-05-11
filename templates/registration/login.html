@@ -1,0 +1,56 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<head>
+    <title>Airplane Reservation - Login</title>
+       {% load static %}
+   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <style>
+    </style>
+</head>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post" class="login-form">
+                    {% csrf_token %}
+                    <h2 class="text-center mb-4">Welcome to Airplane booking</h2>
+                    <small>To access your account's settings, start by entering your username and password
+                        below.</small>
+                    {% if form.errors %}
+                       <p style="color: red">Username doesn't exist or password is not correct</p>
+                   {% endif %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        {{ form.username }}
+
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        {{ form.password }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                     <div>
+                    <small><a href={% url 'signup' %} class="register-link">Don't have an account? Register here</a></small>
+                    </div>
+                    <div>
+                        <small><a href="#" class="AdaminLogin-link">Adamin login here</a></small>
+                    </div>
+                    <div>
+                        <small><a href="#" class="AdaminLogin-link">Employee login here</a></small>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoRUHw7YYTkIlzNUYjV+00XnjuEhE9NcD4hFQ6IkT0"
+        crossorigin="anonymous"></script>
+
+{% endblock content %}

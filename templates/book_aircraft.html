@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Book Aircraft</h2>
+  {% if error %}
+    <p style="color: red">{{ error }}</p>
+  {% endif %}
+  <form method="POST">
+    {% csrf_token %}
+    <label for="aircraft_id">Aircraft ID:</label>
+    <input type="text" name="aircraft_id" required><br><br>
+    <label for="start_time">Start Time:</label>
+    <input type="datetime-local" name="start_time" required><br><br>
+    <label for="end_time">End Time:</label>
+    <input type="datetime-local" name="end_time" required><br><br>
+    <input type="submit" value="Book">
+  </form>
+{% endblock %}

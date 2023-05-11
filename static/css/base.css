@@ -1,0 +1,77 @@
+/* Custom CSS for base.html */
+
+.navbar {
+    margin-bottom: 30px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    font-size: 20px;
+}
+
+.nav-item.active .nav-link {
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .nav-item {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+.aircraft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .first {
+    flex: 0 0 50%;
+  }
+  
+  .details {
+    flex: 0 0 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bottom {
+    margin-top: auto;
+  }
+
+.btn {
+    background-color: #8bc34a;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 40px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.4s;
+    }
+    
+    .btn:hover {
+        background-color: #3e8e41;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* add box-shadow on hover to make the button more attractive */
+    }

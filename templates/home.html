@@ -1,0 +1,83 @@
+<!-- home.html -->
+{% extends 'base.html' %}
+{% block page_title %}
+    Aircraft Reservation Home
+{% endblock %}
+{% block content %}
+    {% load static %}
+<head>
+    <title>Aircraft Reservation Home</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="GET" action="#">
+            <input type="text" name="q" placeholder="Search aircraft" value="{{ request.GET.q }}">
+            <select name="type">
+                <option value="">All Types</option>
+                <option value="Boeing" {% if request.GET.type == "Boeing" %}selected{% endif %}>Boeing</option>
+                <option value="Airbus" {% if request.GET.type == "Airbus" %}selected{% endif %}>Airbus</option>
+                <option value="Embraer" {% if request.GET.type == "Embraer" %}selected{% endif %}>Embraer</option>
+            </select>
+            <select name="origin">
+                <option value="">All Origins</option>
+                <option value="United States" {% if request.GET.origin == "United States" %}selected{% endif %}>United States</option>
+                <option value="France" {% if request.GET.origin == "France" %}selected{% endif %}>France</option>
+                <option value="Brazil" {% if request.GET.origin == "Brazil" %}selected{% endif %}>Brazil</option>
+            </select>
+            <input type="submit" value="Search">
+        </form>
+        <div class="row">
+            {% for aircraft in aircrafts %}
+            <div class="card">
+                <a href="{% url 'aircraft_detail' aircraft.id %}">
+                <img src="{{ aircraft.image }}" alt="{{ aircraft.xwmmodel }}">
+                <div class="card-body">
+                    <h3 class="card-title">{{ aircraft.model }}</h3>
+                    <p class="card-text"><strong>Aircraft ID: </strong>{{ aircraft.id }}</p>
+                    <p class="card-text"><strong>Fuel Capacity: </strong>{{ aircraft.fuelCapacity }}</p>
+                    <p class="card-text"><strong>Current Speed: </strong>{{ aircraft.currentSpeed }}</p>
+                    <p class="card-text"><strong>Availability: </strong>{{ aircraft.availability }}</p>
+                    <p class="card-text"><strong>Description: </strong>{{ aircraft.description }}</p>
+                    <p class="card-text"><strong>Country: </strong>{{ aircraft.country }}</p>
+                    <a href="#" class="btn book-btn" data-aircraft-id="{{ aircraft.id }}">Booking</a>
+                    <form method="post" action="{% url 'book_aircraft' %}" class="book-form" data-aircraft-id="{{ aircraft.id }}" style="display:none;">
+                        {% csrf_token %}
+                        <input type="hidden" name="aircraft_id" value="{{ aircraft.id }}">
+                        <label for="start_time">Start time:</label>
+                        <input type="datetime-local" id="start_time" name="start_time">
+                        <label for="end_time">End time:</label>
+                        <input type="datetime-local" id="end_time" name="end_time">
+                        <input type="submit" value="Book now" class="btn">
+                    </form>
+                </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+
+        <script>
+            // Add click event listener to all "Booking" buttons
+            var bookBtns = document.getElementsByClassName("book-btn");
+            for (var i = 0; i < bookBtns.length; i++) {
+                bookBtns[i].addEventListener("click", function(event) {
+                    event.preventDefault();
+                    console.log("Hello");
+                    // Get the aircraft ID from the data-aircraft-id attribute
+                    var aircraftId = this.getAttribute("data-aircraft-id");
+                    // Show the booking form for the corresponding aircraft
+                    console.log(aircraftId);
+                    var bookForm = document.querySelector(".book-form[data-aircraft-id='" + aircraftId + "']");
+                    console.log(bookForm);
+                    console.log(".book-form[data-aircraft-id='" + aircraftId + "']");
+                    bookForm.style.display = "block";
+                });
+            }
+        </script>
+
+    </div>
+</body>
+{% endblock %}

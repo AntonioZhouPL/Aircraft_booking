@@ -1,0 +1,87 @@
+[
+  {
+	"model": "reservation.Aircraft",
+	"pk": 1,
+	"fields": {
+    "currentSpeed": 500,
+    "model": "Boeing 747",
+    "fuelCapacity": 20000,
+    "timeForInspection": "2023-06-01",
+    "description": "A large commercial airplane",
+    "image": "static/Aircrafts_img/Boeing747.jpeg",
+    "availability": true,
+    "country": "United States"
+    }
+  },
+  {
+	"model": "reservation.Aircraft",
+	"pk": 2,
+	"fields": {
+    "currentSpeed": 800,
+    "model": "Honda",
+    "fuelCapacity": 10000,
+    "timeForInspection": "2023-06-01",
+    "description": "This is a Honda aircraft",
+    "image": "static/Aircrafts_img/HondaJet.jpeg",
+    "availability": true,
+    "country": "France"
+	}
+  },
+  {
+	"model": "reservation.Aircraft",
+	"pk": 3,
+	"fields": {
+    "currentSpeed": 400,
+    "model": "Airbus A320",
+    "fuelCapacity": 20000,
+    "timeForInspection": "2023-06-01",
+    "description": "This is an Airbus A320 aircraft",
+    "image": "static/Aircrafts_img/AirbusA380.jpeg",
+    "availability": true,
+    "country": "Brazil"
+	}
+  },
+  {
+	"model": "reservation.Aircraft",
+	"pk": 4,
+	"fields": {
+    "currentSpeed": 500,
+    "model": "Bombardier Global 7500",
+    "fuelCapacity": 20000,
+    "timeForInspection": "2023-06-01",
+    "description": "This is an Airbus A320 aircraft",
+    "image": "static/Aircrafts_img/Bombardier_Global_7500.jpeg",
+    "availability": true,
+    "country": "France"
+	}
+  },
+  {
+	"model": "reservation.Aircraft",
+	"pk": 5,
+	"fields": {
+    "currentSpeed": 600,
+    "model": "CessnaCitationX",
+    "fuelCapacity": 10000,
+    "timeForInspection": "2023-06-01",
+    "description": "This is an Airbus A320 aircraft",
+    "image": "static/Aircrafts_img/CessnaCitationX.jpeg",
+    "availability": false,
+    "country": "Brazil"
+	}
+  },
+
+  {
+    "model": "reservation.Aircraft",
+    "pk": 6,
+    "fields": {
+      "currentSpeed": 600,
+      "model": "Biplane",
+      "fuelCapacity": 10000,
+      "timeForInspection": "2023-07-08",
+      "description": "This is an Biplane A320 aircraft",
+      "image": "static/Aircrafts_img/Biplane.jpeg",
+      "availability": false,
+      "country": "Brazil"
+    }
+    }
+]

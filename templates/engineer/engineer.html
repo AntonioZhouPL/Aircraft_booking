@@ -1,0 +1,84 @@
+<!-- templates/planes/planelist.html -->
+
+
+
+{% extends 'base.html' %}
+
+{% block page_title %}
+Welcome Engineer
+{% endblock %}
+
+
+{% block content %}
+
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h3>Aircraft List</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Current Speed</th>
+              <th>Fuel Capacity</th>
+              <th>Time for Inspection</th>
+              <th>Description</th>
+              <th>Availability</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for aircraft in aircrafts %}
+            <tr>
+              <td>{{ aircraft.model }}</td>
+              <td>{{ aircraft.currentSpeed }}</td>
+              <td>{{ aircraft.fuelCapacity }}</td>
+              <td>{{ aircraft.timeForInspection }}</td>
+              <td>{{ aircraft.description }}</td>
+              <td>{{ aircraft.availability }}</td>
+
+              <td>
+
+                <button type="button" class="btn btn-dark">Edit</button>
+              </td>
+
+             
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+        <h3>Bookings</h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Aircraft Model</th>
+              <th>User</th>
+              <th>Start Time</th>
+              <th>End Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in booking_list %}
+            <tr>
+              <td>{{ booking.aircraft.model }}</td>
+              <td>{{ booking.user.username }}</td>
+              <td>{{ booking.start_time }}</td>
+              <td>{{ booking.end_time }}</td>
+              <td>{{ booking.status }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+
+  
+
+
+  {% endblock %}

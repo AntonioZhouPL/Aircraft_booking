@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block page_title %}
+    Aircraft Reservation Home
+{% endblock %}
+{% block content %}
+    {% load static %}
+<head>
+    <title>Aircraft Reservation Home</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="aircraft">
+        <div class="wrapper">
+            <div class="first">
+                <img src="{{ aircraft.image }}" alt="{{ aircraft.xwmmodel }}">
+            </div>
+            <div class="details">
+                <div class="card-body">
+                    <h3 class="card-title">{{ aircraft.model }}</h3>
+                    <p class="card-text"><strong>Aircraft ID: </strong>{{ aircraft.id }}</p>
+                    <p class="card-text"><strong>Fuel Capacity: </strong>{{ aircraft.fuelCapacity }}</p>
+                    <p class="card-text"><strong>Current Speed: </strong>{{ aircraft.currentSpeed }}</p>
+                    <p class="card-text"><strong>Availability: </strong>{{ aircraft.availability }}</p>
+                    <p class="card-text"><strong>Description: </strong>{{ aircraft.description }}</p>
+                    <p class="card-text"><strong>Country: </strong>{{ aircraft.country }}</p>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom">
+            <a href="#" class="btn book-btn" data-aircraft-id="{{ aircraft.id }}">Booking</a>
+                <form method="post" action="{% url 'book_aircraft' %}" class="book-form" data-aircraft-id="{{ aircraft.id }}" style="display:none;">
+                    {% csrf_token %}
+                    <input type="hidden" name="aircraft_id" value="{{ aircraft.id }}">
+                    <label for="start_time">Start time:</label>
+                    <input type="datetime-local" id="start_time" name="start_time">
+                    <label for="end_time">End time:</label>
+                    <input type="datetime-local" id="end_time" name="end_time">
+                    <input type="submit" value="Book now" class="btn">
+                </form>
+        </div>
+            
+        
+        <script>
+            // Add click event listener to all "Booking" buttons
+            var bookBtns = document.getElementsByClassName("book-btn");
+            for (var i = 0; i < bookBtns.length; i++) {
+                bookBtns[i].addEventListener("click", function(event) {
+                    event.preventDefault();
+                    console.log("Hello");
+                    // Get the aircraft ID from the data-aircraft-id attribute
+                    var aircraftId = this.getAttribute("data-aircraft-id");
+                    // Show the booking form for the corresponding aircraft
+                    console.log(aircraftId);
+                    var bookForm = document.querySelector(".book-form[data-aircraft-id='" + aircraftId + "']");
+                    console.log(bookForm);
+                    console.log(".book-form[data-aircraft-id='" + aircraftId + "']");
+                    bookForm.style.display = "block";
+                });
+            }
+        </script>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,48 @@
+body {
+    background-image: url("https://cms.finnair.com/resource/blob/2348276/ad1f0d8769b9b89b96cd4c7b804058a6/our-fleet-image-data.jpg?impolicy=crop&width=3000&height=1688&x=0&y=101&imwidth=768");
+    background-size: cover;
+}
+
+.login-form {
+    background-color: #fff;
+    margin: auto;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-group input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    color: #555;
+}
+
+.form-group input:focus {
+    border-color: #2b6db4;
+    box-shadow: 0px 0px 10px rgba(43, 109, 180, 0.1);
+}
+
+.btn-primary {
+    background-color: #2b6db4;
+    border-color: #2b6db4;
+}
+
+.btn-primary:hover {
+    background-color: #245aa9;
+    border-color: #245aa9;
+}
